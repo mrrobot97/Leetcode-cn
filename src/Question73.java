@@ -42,10 +42,10 @@ public class Question73 {
         }
         for(int i=0;i<m;i++){
             if(matrix[i][y]==0){
+                if(i==x){           //避免干扰记录的数据
+                    continue;
+                }
                 for(int j=0;j<n;j++){
-                    if(i==x || j==y){       //先不处理第x行和第y列的
-                        continue;
-                    }
                     matrix[i][j]=0;
                 }
             }
@@ -53,9 +53,6 @@ public class Question73 {
         for(int j=0;j<n;j++){
             if(matrix[x][j]==0){
                 for(int i=0;i<m;i++){
-                    if(i==x || j==y){
-                        continue;
-                    }
                     matrix[i][j]=0;
                 }
             }
