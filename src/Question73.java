@@ -4,7 +4,7 @@ public class Question73 {
 
     }
     //https://leetcode-cn.com/problems/set-matrix-zeroes/description/
-    //思路：先遍历一遍矩阵，找到第一个为0的位置(i,j),则可以将第i行和第j列用于存储需要改变为0的行和列
+    //思路：先遍历一遍矩阵，找到第一个为0的位置(i,j),则可以将第i行和第j列用于存储需要改变为0的列和行
     public static void setZeroes(int[][] matrix) {
         int m=matrix.length;
         if(m==0){
