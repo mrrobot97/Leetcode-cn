@@ -28,7 +28,7 @@ public class Question542 {
             for (int i = 0; i < 4; i++) {
                 int x=p.getKey()+dx[i];
                 int y=p.getValue()+dy[i];
-                if(x>=0 && x<m && y>=0 && y<n && matrix[x][y]>matrix[p.getKey()][p.getValue()]){
+                if(x>=0 && x<m && y>=0 && y<n && matrix[x][y]>matrix[p.getKey()][p.getValue()]+1){
                     matrix[x][y]=matrix[p.getKey()][p.getValue()]+1;
                     queue.offer(new Pair<>(x,y));
                 }
