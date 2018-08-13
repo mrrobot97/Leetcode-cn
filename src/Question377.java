@@ -7,15 +7,34 @@ public class Question377 {
 
     public static void main(String[] args){
         int[] nums={1,2,3};
-        System.out.print(combinationSum4(nums,4));
+        System.out.print(combinationSum4(nums,32));
     }
 
     //https://leetcode-cn.com/problems/combination-sum-iv/description/
     //直接dfs很简单，但是会超时,因此用一个HashMap来进行缓存优化
 
+    //dp version
+    //dp[i]=sum{dp[i-nums[j],i-nums[j]>=0}
+    public static int combinationSum4(int[] nums, int target) {
+        if(target==0 || nums.length==0){
+            return 0;
+        }
+        int[] dp=new int[target+1];
+        dp[0]=1;    //能到达dp[0]说明此种有解，+1
+        for (int i = 1; i <= target; i++) {
+            for(int val:nums){
+                if(i-val>=0){
+                    dp[i]+=dp[i-val];
+                }
+            }
+        }
+        return dp[target];
+    }
+
+    //dfs version
     private static Map<Integer,Integer> cacheMap=new HashMap<>();
 
-    public static int combinationSum4(int[] nums, int target) {
+    public static int combinationSum4InDFS(int[] nums, int target) {
         if(target==0 || nums.length==0){
             return 0;
         }
