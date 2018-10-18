@@ -12,13 +12,12 @@ public class Question442 {
     public static List<Integer> findDuplicates(int[] nums) {
         List<Integer> list=new ArrayList<>();
         int n=nums.length;
-
         for (int i = 0; i < n; i++) {
             int index=Math.abs(nums[i])-1;
             if(nums[index]<0){
                 list.add(index+1);
             }
-            nums[index]=-nums[index];
+            nums[index]=-nums[index];           //这样既可以标记变量是否已经遍历过，同时不影响数组数据
         }
 
         return list;
