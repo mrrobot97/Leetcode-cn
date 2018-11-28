@@ -13,11 +13,7 @@ public class Question39 {
     //dfs的思想
     public static List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> list = new ArrayList<>();
-        for (int i = 0; i < candidates.length; i++) {
-            List<Integer> testList=new ArrayList<>();
-            testList.add(candidates[i]);
-            dfs(list,testList,candidates,i,target-candidates[i]);
-        }
+        dfs(list,new ArrayList<>(),candidates,candidates.length-1,target);
         for (List<Integer> l:list){
             for(int i:l){
                 System.out.print(i+" ");
